@@ -1,0 +1,54 @@
+{
+    "services":[
+        {
+        "id":1,
+        "title":"O sa-ti fac un joc in unity!",
+        "thumbnailUrl":"http://localhost:9000/games.png",
+        "rating":4,
+        "rate":30,
+        "specialist":{
+            "id":1,
+            "fullName":"Ioan Ancuta"
+                    }
+        },
+        {
+            "id":2,
+            "title":"O sa-ti fac o pagina web folosind ASP.NET!",
+            "thumbnailUrl":"http://localhost:9000/webapps.png",
+            "rating":3,
+            "rate":30,
+            "specialist":{
+                "id":1,
+                "fullName":"Ioan Ancuta"
+            }
+        },
+        {
+            "id":3,
+            "title":"O sa-ti fac un cod la cerere!",
+            "thumbnailUrl":"http://localhost:9000/randombits.png",
+            "rating":3,
+            "rate":30,
+            "specialist":{
+                "id":1,
+                "fullName":"Ioan Ancuta"
+            }
+        },
+        {
+            "id":4,
+            "title":"O sa-ti testez aplicatia!",
+            "thumbnailUrl":"http://localhost:9000/codingandtesting.png",
+            "rating":3,
+            "rate":30,
+            "specialist":{
+                "id":1,
+                "fullName":"Ioan Ancuta"
+            }
+        }
+
+
+
+
+
+
+    ]
+}
