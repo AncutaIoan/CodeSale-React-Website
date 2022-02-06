@@ -59,7 +59,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-![Alt text](https://github.com/AncutaIoan/CodeSale-React-Website/blob/master/pictures/namess.png?raw=true "Title")
+![Alt text](https://github.com/AncutaIoan/CodeSale-React-Website/blob/master/pictures/mainpage.png?raw=true "Title")
 
 
 This app is made for a future, programmer and clients only website, where you can sell or buy code/apps or others.
