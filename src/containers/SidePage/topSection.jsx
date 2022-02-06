@@ -1,13 +1,12 @@
 import React from "react";
+import { useState } from "react";
+import ReactDOM from "react-dom";
 import styled from "styled-components";
 import { useMediaQuery } from "react-responsive";
 import TopSectionBackgroundImg from "../../images/chilllanding.jpg"
 import MainSectionImg from "../../images/chillcartoon.jpg";
-import { BrandLogo } from "../../components/brandlogo";
 import { deviceSize } from "../../components/responsive";
-import {Marginer} from "../../components/marginer";
 
-import {Button} from "../../components/button";
 const TopSectionContainer = styled.div`
     width:100%;
     height: 800px;
@@ -44,7 +43,7 @@ const StandoutImage = styled.div`
   }
 `;
 
-const LogoContainer = styled.div`
+const JoinContainer = styled.div`
   display: flex;
   align-items: flex-start;
   flex-direction: column;
@@ -68,23 +67,23 @@ export function TopSection(props){
     const {children} = props;
 
     const isMobile = useMediaQuery({ maxWidth: deviceSize.mobile });
-
+    const [textarea, setTextarea] = useState(
+        "Spune ceva despre tine si cateva date de contact, iar noi o sa te contactam in cel mai scurt timp!"
+      );
+    
+      const handleChange = (event) => {
+        setTextarea(event.target.value)
+      }
   return (
     <TopSectionContainer>
       <BackgroundFilter>
         {children}
         <TopSectionInnerContainer>
-          <LogoContainer>
-            <BrandLogo
-              logoSize={isMobile ? 40 : 65}
-              textSize={isMobile ? 35 : 55}
-            />
-            <Marginer direction="vertical" margin={8} />
-            <SloganText>Ai facut o aplicatie sau un scurt cod si nu sti ce urmeaza ?</SloganText>
-            <SloganText>Aici il poti vinde!</SloganText>
-            <Marginer direction="vertical" margin={15} />
-            <Button><a href="/join">Alatura-te noua!</a></Button>
-          </LogoContainer>
+          <JoinContainer>
+            <form>
+            <textarea value={textarea} onChange={handleChange} />
+            </form>
+          </JoinContainer>
           {!isMobile && (
             <StandoutImage>
               <img src={MainSectionImg} alt="main img" />
@@ -97,3 +96,5 @@ export function TopSection(props){
 
 
 }
+
+ReactDOM.render(<TopSection />, document.getElementById('root'));

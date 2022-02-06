@@ -50,5 +50,18 @@
 
 
 
+    ],
+
+
+    
+    "userdetails":[
+        {
+            "id":1,
+            "name":"ceva",
+            "email":"test@test.com",
+            "password":"test"
+        }
+       
     ]
+
 }
