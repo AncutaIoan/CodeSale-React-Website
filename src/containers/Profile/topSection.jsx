@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import styled from "styled-components";
 import { useMediaQuery } from "react-responsive";
 import TopSectionBackgroundImg from "../../images/chilllanding.jpg"
@@ -6,7 +6,10 @@ import MainSectionImg from "../../images/chillcartoon.jpg";
 import { BrandLogo } from "../../components/brandlogo";
 import { deviceSize } from "../../components/responsive";
 import {Marginer} from "../../components/marginer";
-
+import {
+  onAuthStateChanged,
+} from "firebase/auth";
+import { auth } from "../../firebase";
 import {Button} from "../../components/button";
 const TopSectionContainer = styled.div`
     width:100%;
@@ -33,8 +36,13 @@ const TopSectionInnerContainer = styled.div`
     display: flex;
     align-items : center;
     justify-content: space-evenly;
-`;
 
+`;
+const ProfileContainer = styled.div`
+
+    display:flex;
+    flex-direction: column;
+    `
 const StandoutImage = styled.div`
   width: 44em;
   height: 34em;
@@ -44,47 +52,53 @@ const StandoutImage = styled.div`
   }
 `;
 
-const LogoContainer = styled.div`
-  display: flex;
-  align-items: flex-start;
-  flex-direction: column;
-  @media screen and (max-width: ${deviceSize.mobile}px) {
-    align-items: center;
-  }
-`;
 
-const SloganText = styled.h3`
+const SloganText = styled.h5`
   margin: 0;
   line-height: 1.4;
   color: #fff;
   font-weight: 500;
-  font-size: 35px;
+  font-size: 15px;
   @media screen and (max-width: ${deviceSize.mobile}px) {
     font-size: 24px;
   }
 `;
 
+const Title = styled.h2`
+  margin: 0;
+  margin-bottom: 13px;
+  color: #000;
+  font-weight: 600;
+  font-size: 20px;
+`;
 export function TopSection(props){
     const {children} = props;
 
     const isMobile = useMediaQuery({ maxWidth: deviceSize.mobile });
-  
+  const [user, setUser] = useState({});
+
+  onAuthStateChanged(auth, (currentUser) => {
+    setUser(currentUser);
+  });
+ 
   return (
     <TopSectionContainer>
       <BackgroundFilter>
         {children}
         <TopSectionInnerContainer>
-          <LogoContainer>
-            <BrandLogo
-              logoSize={isMobile ? 40 : 65}
-              textSize={isMobile ? 35 : 55}
-            />
-            <Marginer direction="vertical" margin={8} />
-            <SloganText>Ai facut o aplicatie sau un scurt cod si nu sti ce urmeaza ?</SloganText>
-            <SloganText>Aici il poti vinde!</SloganText>
-            <Marginer direction="vertical" margin={15} />
-            <Button><a href="/join">Alatura-te noua!</a></Button>
-          </LogoContainer>
+        <ProfileContainer>
+                <Title>Profile</Title>
+
+                <SloganText>{user?.email}</SloganText>
+
+
+                <SloganText>Chiol</SloganText>
+                <SloganText>Ion</SloganText>
+                <SloganText>0726036703</SloganText>
+      </ProfileContainer>
+
+
+
           {!isMobile && (
             <StandoutImage>
               <img src={MainSectionImg} alt="main img" />

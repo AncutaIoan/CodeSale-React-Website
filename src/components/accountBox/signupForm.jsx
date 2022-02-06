@@ -16,6 +16,8 @@ import {
   signOut,
 } from "firebase/auth";
 import { auth } from "../../firebase";
+import { Link } from "react-router-dom";
+
 export function SignupForm(props) {
   const { switchToSignin } = useContext(AccountContext);
 
@@ -55,7 +57,9 @@ export function SignupForm(props) {
           }}/>
       </FormContainer>
       <Marginer direction="vertical" margin="1em" />
-      <SubmitButton onClick={register} >Signup</SubmitButton>
+      <Link to="/">
+      <SubmitButton onClick={register} type="submit"> Singup</SubmitButton>
+      </Link>
       <Marginer direction="vertical" margin={5} />
       <MutedLink href="#">
         Already have an account?

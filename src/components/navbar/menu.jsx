@@ -90,10 +90,14 @@ export function Menu(props) {
      return (
       <AccessibilityContainer>
         {!isMobile && <Marginer direction="horizontal" margin={10} />}
-        <Marginer direction="horizontal" margin={10} />         
+        <Marginer direction="horizontal" margin={10} />   
+        <Link to="/profile">
+
         <UserProfile>
           {user?.email}
         </UserProfile> 
+        </Link>
+        
         <Marginer direction="horizontal" margin={10} />            
 
       <Button1 onClick={logout}> Sign Out </Button1>
