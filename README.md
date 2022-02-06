@@ -15,7 +15,7 @@
 <br />
 <div align="center">
 
-    <img src="https://github.com/AncutaIoan/CodeSale-React-Website/blob/master/logo.png" alt="Logo" width="80" height="80">
+    ![alt text](https://github.com/AncutaIoan/CodeSale-React-Website/blob/master/logo.png)
 
 
   <h3 align="center">CodeSale</h3>
